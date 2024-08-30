@@ -1,0 +1,204 @@
+#cartegory{
+    position:absolute;
+    width:100%;
+    height:10vh;
+    top:6%;
+}
+
+/* --------------------TOP-CATAGORY------------- */
+
+#top-cartegory .getbackbtn{
+    display:flex;
+    list-style: none;
+    color: rgb(158, 156, 156);
+    padding-top:20px;
+}
+.getbackbtn a{
+    color: rgb(158, 156, 156);
+    padding-left:10px;
+}
+.getbackbtn span{
+    padding-left:10px;
+}
+.backbtn.active{
+    font-weight: bold;
+    outline-style: unset;
+}
+
+/* ----------------------LEFT-CATAGORY(LIST-TYPE)------------------- */
+
+#content-cartegory{
+    position:absolute;
+    display:flex;
+    width:100%;
+    height:80vh;
+    top:10%;
+}
+.list-type{
+    list-style: none;
+    line-height: 30px;
+}
+.list-type li{
+    font-weight: bold;
+    padding-top:20px;
+}
+.list-type button{
+    border:none;
+    font-weight: bold;
+}
+
+/* ---------------------RIGHT-CATAGORY(LIST-SP)------------------ */
+
+.list-head{
+    display:flex;
+    padding-left: 20px;
+    flex-wrap: wrap;
+}
+.list-head .dropdown-item{
+    position:absolute;
+    display:flex;
+    left: 60%;
+    width:40%;
+}
+.dropdown-item .dropdown{
+    padding-left: 15px;
+    width:100%;
+}
+.dropdown button{
+    width:100%;
+}
+.dropdown .dropdown-toggle{
+    text-align: left;
+}
+.list-body{
+    padding-top: 20px;
+    max-width: 500px;
+}
+.list-body .rowss{
+    display:flex;
+    flex-wrap: wrap;
+}
+.rowss .sp{
+    padding-left: 20px;
+    text-align: center;
+}
+.sp img{
+    width:200px;
+    height:200px;
+}
+.menu-boloc{
+    width:600px;
+    display:flex;
+    margin-right: 40px;
+    flex-wrap: wrap;
+}
+.list-size{
+    display:flex;
+}
+.btnloc{
+    display:flex;
+    padding-top: 100px;
+    padding-left: 10px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.btnloc button{
+    margin-left: 10px;
+}
+.bang-mau{
+    display:flex;
+    flex-wrap: wrap;
+}
+.mau{
+    width:20px;
+    height:20px;
+    margin-left: 10px;
+}
+.bg-danger{
+    background-color: red;
+}
+.bg-primary{
+    background-color: blue;
+}
+.bg-warining{
+    background-color: yellow;
+}
+.bg-success{
+    background-color: green;
+}
+
+/* -------------------BOTTOM-CATAGORY(SET SL)------------------ */
+
+.list-bottom{
+    display:inline-flex;
+    width:100%;
+}
+.list-bottom p{
+    padding:10px;
+    width:50%;
+    justify-self: flex-start;
+}
+.page{
+    display:inline-flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding:10px;
+    list-style: none;
+    width:50%;
+    justify-self: flex-end;
+}
+.page-item{
+    padding-left: 15px;
+    border:1px solid #333;
+    text-align: center;
+    cursor:pointer;
+    text-decoration: none;
+}
+.page-item a{
+    text-align: center;
+}
+.page-item.active{
+    background-color: aqua;
+}
+
+
+@media only screen and (max-width:768px){
+    #content-cartegory{
+        flex-direction: column;
+        top:5%;
+    }
+    .list-type{
+        display:flex;
+        flex-direction: row;
+    }
+    #top-cartegory .getbackbtn{
+        padding-top:40px;
+        padding-left: 40px;
+    }
+    .list-head{
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+    .list-head h3{
+        padding-left: 50px;
+    }
+    .list-head .dropdown-item{
+        left:15%;
+        top:8%;
+        width:30%;
+    }
+    .sp img{
+        width:150px;
+        height:150px;
+    }
+    .list-bottom{
+        width:95%;
+    }
+    .menu-boloc{
+        width:300px;
+    }
+    .list-body .rowss{
+        flex-wrap: wrap;
+    }
+}
+

@@ -1,0 +1,50 @@
+$("#delivery").hide();
+$("#purchase").hide();
+function cart(){
+    $("#cart").show();
+    $(".giohang").toggleClass('active');
+    $("#delivery").hide();
+    $("#purchase").hide();
+    $("thanhtoan-icon").removeClass('active');
+    $(".DiaChi").removeClass('active');
+}
+function deliver(){
+    $("#delivery").show();
+    $(".DiaChi").toggleClass('active');
+    $("#cart").hide();
+    $("#purchase").hide();
+    $(".giohang").removeClass('active');
+    $("thanhtoan-icon").removeClass('active');
+}
+function pay(){
+    $("#purchase").show();
+    $("thanhtoan-icon").toggleClass('active');
+    $("#delivery").hide();
+    $("#cart").hide();
+    $(".giohang").removeClass('active');
+    $(".DiaChi").removeClass('active');
+}
+$(".giohang-icon").click(()=>{
+    cart();
+})
+$(".deliver-icon").click(()=>{
+    deliver();
+})
+$(".ThanhToan").click(()=>{
+    pay();
+})
+$("#cart-btn").click(()=>{
+    deliver();
+})
+$("#deliver-btn").click(()=>{
+    pay();
+})
+$('#purchase-btn').click(()=>{
+    alert('Chúc mừng! Bạn đã mua thành công, Giờ thì chờ đợi là hạnh phúc');
+})
+$('.delete_cart').click(()=>{
+    $('.cart-01').css('display','none');
+})
+$('.reverse-btn').click(()=>{
+    cart();
+})

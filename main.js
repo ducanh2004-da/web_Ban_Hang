@@ -1,0 +1,13 @@
+$('.regis').hide();
+$('#LogRegis').hide();
+$('#btn-dk').click(()=>{
+    $('.regis').fadeIn();
+    $('.login').fadeOut();
+})
+$('#btn-dn').click(()=>{
+    $('.regis').fadeOut();
+    $('.login').fadeIn();
+})
+$('.fa-user').click(()=>{
+    $('#LogRegis').toggle();
+})
