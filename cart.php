@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('./partial/header.php');
 include ("./Class/product_class.php");
 ?>
 <!DOCTYPE html>
@@ -7,7 +7,10 @@ include ("./Class/product_class.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./cart.css">
+  <link rel="stylesheet" href="./public/cart.css">
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
 </head>
 <?php
 if (!isset($_GET['brand_id']) || $_GET['brand_id'] == null) {
@@ -249,9 +252,9 @@ $select_product = $product->getProduct($brand_id);
 
         <!-- Footer -->
         <?php
-      include('footer.php');
+      include('./partial/footer.php');
       ?>
       </div>
-      <script src="./cart.js"></script>
+      <script src="./public/cart.js"></script>
 </body>
 </html>

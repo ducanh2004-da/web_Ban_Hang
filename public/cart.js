@@ -40,7 +40,7 @@ $("#deliver-btn").click(()=>{
     pay();
 })
 $('#purchase-btn').click(()=>{
-    alert('Chúc mừng! Bạn đã mua thành công, Giờ thì chờ đợi là hạnh phúc');
+    swal("Chúc mừng!", "Bạn đã mua thành công, Giờ thì chờ đợi là hạnh phúc", "success");
 })
 $('.delete_cart').click(()=>{
     $('.cart-01').css('display','none');

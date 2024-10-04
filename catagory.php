@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('./partial/header.php');
 include ("./Class/product_class.php");
 ?>
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ include ("./Class/product_class.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./catagory.css">
+  <link rel="stylesheet" href="./public/catagory.css">
   <title>Document</title>
 </head>
 <?php
@@ -190,7 +190,7 @@ $show_product = $product->showProduct();
 
     <!----------------------- Footer ------------------->
     <?php
-      include('footer.php');
+      include('./partial/footer.php');
       ?>
       </div>
       <script>

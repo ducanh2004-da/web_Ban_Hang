@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('./partial/header.php');
 include ("./Class/product_class.php");
 ?>
 <!DOCTYPE html>
@@ -7,7 +7,7 @@ include ("./Class/product_class.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./product.css">
+  <link rel="stylesheet" href="./public/product.css">
 </head>
 <?php
 if (!isset($_GET['brand_id']) || $_GET['brand_id'] == null) {
@@ -123,9 +123,9 @@ $select_product = $product->getProduct($brand_id);
 
     <!-- Footer -->
     <?php
-      include('footer.php');
+      include('./partial/footer.php');
       ?>
       </div>
-      <script src="./product.js"></script>
+      <script src="./public/product.js"></script>
 </body>
 </html>

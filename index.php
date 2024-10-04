@@ -1,5 +1,5 @@
 <?php
-include('header.php');
+include('./partial/header.php');
 ?>
     <!-- Slider -->
     <section id="slider">
@@ -16,29 +16,29 @@ include('header.php');
     <div class="carousel-inner">
 
       <div class="item active">
-        <img src="./img/bg_image01.jpg" alt="Los Angeles" style="width:100%; height:80vh;">
+        <img src="./img/background_image04.jpg" alt="Los Angeles" style="width:100%; height:80vh;">
         <div class="carousel-caption">
             <h1>New Arrivals</h1>
             <p>Vest nữ</p>
-            <button style="color:black;" class="btn">View On Web</button>
+            <a style="z-index: 5;" href="./catagory.php"><button style="color:black;" class="btn">View On Web</button></a>
           </div>
       </div>
 
       <div class="item">
-        <img src="./img/bg_image02.jpg" alt="Chicago" style="width:100%; height:80vh;">
+        <img src="./img/background_image02.png" alt="Chicago" style="width:100%; height:80vh;">
         <div class="carousel-caption">
           <h1>New Arrivals</h1>
           <p>Fall Winter 2020</p>
-          <button style="color:black;" class="btn">New On Web</button>
+          <a style="z-index: 5;" href="./catagory.php"><button style="color:black;" class="btn">New On Web</button></a>
         </div>
       </div>
     
       <div class="item">
-        <img src="./img/bg_image03.jpg" alt="New York" style="width:100%; height:80vh;">
+        <img src="./img/background_image03.png" alt="New York" style="width:100%; height:80vh;">
         <div class="carousel-caption">
             <h1>New Arrivals</h1>
             <p>Phong cách nhật bản</p>
-            <button style="color:black;" class="btn">View On Web</button>
+            <a style="z-index: 5;" href="./catagory.php"><button style="color:black;" class="btn">View On Web</button></a>
         </div>
       </div>
   
@@ -93,6 +93,14 @@ include('header.php');
         <div class="set setpass">
             <i class="fa fa-expeditedssl"></i>
             <input type="password" name="passLog" class="passLog" placeholder="Input password">
+        </div>
+        <div style="display:flex; justify-content:center;" class="set_user_type">
+        <div style="margin-right:20px;" class="radio-item">
+          <input type="radio" id="admin" name="role" value="Normal User">User
+        </div>
+        <div style="margin-left:20px;" class="radio-item">
+           <input style="margin-left:20px;" type="radio" id="admin" name="role" value="Admin">Admin
+        </div>
         </div>
         <div class="forget-pass">
             <input type="checkbox" name="rememberMe">Remember me
@@ -156,10 +164,11 @@ include('header.php');
       </section>
 
       <?php
-      include('footer.php');
+      include('./partial/footer.php');
       ?>
   </div>
-    <script src="./main.js"></script>
+    <script src="./public/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script>
       var listyle = document.querySelectorAll('.liststyle');
 listyle.forEach((val,key)=>{

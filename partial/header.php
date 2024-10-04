@@ -11,17 +11,21 @@ include ("./Class/brand_class.php");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
 <!-- jQuery library -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<script>
+    import swal from 'sweetalert';
+</script>
     <title>Web bán hàng</title>
 </head>
 
@@ -39,28 +43,116 @@ if (isset($_POST["btnReg"])) {
     $result = $user->insertUser($name, $email, $account, $hash);
 
     if ($result) {
-        echo "Registration successful!";
+        echo"Registration successful!";
+        echo "<script>
+        swal({
+           title: 'Registration successful!',
+           text: 'Click ok to refresh the page.',
+           type: 'success'
+        },
+        function(){
+           window.location='index.php'
+        });
+        </script>";
     } else {
-        echo "Registration failed!";
+        echo"Registration successful!";
+        echo "<script>
+        swal({
+           title: 'Registration successful!',
+           text: 'Click ok to refresh the page.',
+           type: 'success'
+        },
+        function(){
+           window.location='index.php'
+        });
+        </script>";
     }
 }
 
+// if (isset($_POST["btnLog"])) {
+//     $accountLog = $text_input->validation($_POST["userLog"]);
+//     $passLog = $text_input->validation($_POST["passLog"]);
+//     $get_account = $user->selectUser(); // Assuming you have this method
+//     $role = $_POST["role"];
+
+//     if ($get_account && mysqli_num_rows($get_account) > 0) {
+//         while ($row = $get_account->fetch_assoc()) {
+//             if ($row["user_account"] == $accountLog && password_verify($passLog, $row["user_password"])) {
+//                 if($role == "admin"){
+//                     header("Location:admin/catagory.php");
+//                     exit();
+//                 }
+//                 else{
+//                     header("Location:catagory.php");
+//                     exit();
+//                 }
+//             } else {
+//                 echo "Invalid username or password.";
+//             }
+//         }
+//     } else {
+//         echo "User not found.";
+//     }
+// }
 if (isset($_POST["btnLog"])) {
     $accountLog = $text_input->validation($_POST["userLog"]);
     $passLog = $text_input->validation($_POST["passLog"]);
     $get_account = $user->selectUser(); // Assuming you have this method
 
+    // Kiểm tra sự tồn tại của role
+    if (isset($_POST["role"])) {
+        $role = $_POST["role"];
+    } else {
+        // Xử lý trường hợp role không tồn tại
+        echo"Role is not set";
+        echo "<script>
+        swal({
+          title: 'Role is not set',
+          text: 'Click ok to refresh the page.',
+          type: 'error'
+        },
+        function(){
+          window.location='index.php'
+        });
+        </script>";
+    }
+
     if ($get_account && mysqli_num_rows($get_account) > 0) {
         while ($row = $get_account->fetch_assoc()) {
             if ($row["user_account"] == $accountLog && password_verify($passLog, $row["user_password"])) {
-                header("Location:catagory.php");
-                exit();
+                if ($role == "Admin") {
+                    header("Location: admin/catagory.php");
+                    exit();
+                } else {
+                    header("Location: catagory.php");
+                    exit();
+                }
             } else {
-                echo "Invalid username or password.";
+                echo"Invalid username or password";
+                echo "<script>
+                   swal({
+                       title: 'Invalid username or password',
+                       text: 'Click ok to refresh the page.',
+                       type: 'error'
+                    },
+                    function(){
+                       window.location='index.php'
+                    });
+                   </script>";
             }
         }
     } else {
-        echo "User not found.";
+        echo"User not found";
+        echo "<script>
+              swal({
+                   title: 'User not found',
+                   text: 'Click ok to refresh the page.',
+                   type: 'error'
+              },
+             function(){
+                   window.location='index.php'
+             });
+        </script>";
     }
 }
 ?>
@@ -76,7 +168,7 @@ $show_catagory = $catagory->showCatagory();
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
               <div class="navbar-header">
-                <a href="./index.php"><img src="./img/logo.png" class="navbar-brand"></a>
+                <a href="./index.php"><img style="width:200px; height:110px;margin-top:-35px;" src="./img/logo_company.png" class="navbar-brand"></a>
               </div>
               <ul class="nav navbar-nav">
                     <li class="active"><a href="index.php">Home</a></li>
